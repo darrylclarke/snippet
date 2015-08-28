@@ -4,7 +4,7 @@ class LanguagesController < ApplicationController
   # GET /languages
   # GET /languages.json
   def index
-    @languages = Language.all
+    @languages = Language.all.order(:name)
   end
 
   # GET /languages/1
@@ -24,9 +24,12 @@ class LanguagesController < ApplicationController
   # POST /languages
   # POST /languages.json
   def create
+    # byebug
     @language = Language.new(language_params)
     if @language.save
+      redirect_to languages_path, message: "Language Created"
     else
+      render :new
     end
   end
 
@@ -34,7 +37,9 @@ class LanguagesController < ApplicationController
   # PATCH/PUT /languages/1.json
   def update
     if @language.update(language_params)
+      redirect_to languages_path, message: "Language updated."
     else
+      render :edit
     end
   end
 
@@ -42,6 +47,7 @@ class LanguagesController < ApplicationController
   # DELETE /languages/1.json
   def destroy
     @language.destroy
+    redirect_to languages_path, message: "Language deleted."
   end
 
   private

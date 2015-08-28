@@ -7,7 +7,7 @@
     <tr>
       <th>Language</th>
       <th>Title</th>
-      <th>Work</th>
+      <th>Body</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,12 +15,12 @@
   <tbody>
     <% @code_snippets.each do |code_snippet| %>
       <tr>
-        <td><%= code_snippet.language %></td>
+        <td><%= code_snippet.language.name %></td>
         <td><%= code_snippet.title %></td>
         <td><%= code_snippet.work %></td>
         <td><%= link_to 'Show', code_snippet %></td>
         <td><%= link_to 'Edit', edit_code_snippet_path(code_snippet) %></td>
-        <td><%= link_to 'Destroy', code_snippet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', code_snippet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

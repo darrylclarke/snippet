@@ -26,7 +26,9 @@ class CodeSnippetsController < ApplicationController
   def create
     @code_snippet = CodeSnippet.new(code_snippet_params)
     if @code_snippet.save
+      redirect_to code_snippets_path, message: "Snippet Created"
     else
+      render :new
     end
   end
 
@@ -34,7 +36,9 @@ class CodeSnippetsController < ApplicationController
   # PATCH/PUT /code_snippets/1.json
   def update
     if @code_snippet.update(code_snippet_params)
+      redirect_to code_snippets_path, message: "Snippet Updated"
     else
+      render :edit
     end
   end
 

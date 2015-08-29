@@ -19,13 +19,13 @@
  
   <div class="form-group">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label "Body" %><br>
-    <%= f.text_area :work %>
+    <%= f.label :work %><br>
+    <%= f.text_area :work, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary"%>
   </div>
 <% end %>

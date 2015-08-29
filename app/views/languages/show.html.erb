@@ -2,7 +2,11 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @language.name %>
+  <%= @language.name %><hr>
+  <%@language.code_snippets.each do |lang_snippet|%>
+    <strong><%=lang_snippet.title%></strong><br>
+    <%=lang_snippet.work%>
+  <%end%><hr>
 </p>
 
 <%= link_to 'Edit', edit_language_path(@language) %> |

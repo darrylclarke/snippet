@@ -41,7 +41,7 @@
       <tbody>
         <%Language.all.each do |lang|%>
           <tr>
-            <td><%=lang.name%></td>
+            <td><%=link_to lang.name, language_path(lang)%></td>
             <td><%=lang.code_snippets.count%></td>
           </tr>
         <%end%>

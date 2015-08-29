@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Maintain Languages</h1>
+<%= link_to 'New Language', new_language_path, class: "btn btn-default"   %>
 
-<table>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -23,6 +25,5 @@
 </table>
 
 <br>
-
-<%= link_to 'New Language', new_language_path   %>
-<%= link_to "Back"        , code_snippets_path  %>
+<hr>
+<%= link_to "Back"        , code_snippets_path, class: "btn btn-default btn-sm" %>

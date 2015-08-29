@@ -1,31 +1,54 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Code Snippets</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Language</th>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-sm-8">
+    <h3>Listing Code Snippets</h3>
+<%#= link_to 'New Code Snippet', new_code_snippet_path, class: "btn btn-default" %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Language</th>
+          <th>Title</th>
+          <th>Body</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @code_snippets.each do |code_snippet| %>
-      <tr>
-        <td><%= code_snippet.language.name %></td>
-        <td><%= code_snippet.title %></td>
-        <td><%= code_snippet.work %></td>
-        <td><%= link_to 'Show', code_snippet %></td>
-        <td><%= link_to 'Edit', edit_code_snippet_path(code_snippet) %></td>
-        <td><%= link_to 'Delete', code_snippet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @code_snippets.each do |code_snippet| %>
+          <tr>
+            <td><%= code_snippet.language.name %></td>
+            <td><%= code_snippet.title %></td>
+            <td><%= code_snippet.work %></td>
+            <td><%= link_to 'Show', code_snippet %></td>
+            <td><%= link_to 'Edit', edit_code_snippet_path(code_snippet) %></td>
+            <td><%= link_to 'Delete', code_snippet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-sm-4">
+    <h5> Listing Languages </h5>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Language</th>
+          <th>Snippet Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%Language.all.each do |lang|%>
+          <tr>
+            <td><%=link_to lang.name, language_path(lang)%></td>
+            <td><%=lang.code_snippets.count%></td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <br>
 
-<%= link_to 'New Code snippet', new_code_snippet_path %>

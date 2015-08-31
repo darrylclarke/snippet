@@ -46,6 +46,7 @@ class CodeSnippetsController < ApplicationController
   # DELETE /code_snippets/1.json
   def destroy
     @code_snippet.destroy
+    redirect_to code_snippets_path, message: "Snippet deleted."
   end
 
   private
